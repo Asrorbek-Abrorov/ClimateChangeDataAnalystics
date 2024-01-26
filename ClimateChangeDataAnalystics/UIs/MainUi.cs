@@ -20,16 +20,16 @@ public class MainUi
             AnsiConsole.Clear();
             AnsiConsole.Write(new FigletText(" * Main Ui * ")
                 .LeftJustified()
-                .Color(Color.Green));
+                .Color(Color.Cyan1));
 
             AnsiConsole.WriteLine();
 
             var ui = AnsiConsole.Prompt(new SelectionPrompt<string>()
-                .Title("What's your [green]favorite fruit[/]?")
+                .Title("[orange1 rapidblink italic bold]All about[/] [orange1 rapidblink]the[/] [orange1 rapidblink italic bold link]weather[/]!")
                 .PageSize(5)
-                .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
+                .MoreChoicesText("[grey rapidblink](Move up and down to reveal more)[/]")
                 .AddChoices(new[] {
-                "Show me now forecast", "Show me today forecast", "Show me weekly forecast", "Exit"
+                "Show me now forecast", "Show me today forecast", "Show me weekly forecast", "[red1 invert]Exit[/]"
                 }));
             switch (ui)
             {
@@ -42,16 +42,15 @@ public class MainUi
                     await hourByHour.Run(date2);
                     break;
                 case "Show me weekly forecast":
-                    weekUi.Run();
+                    var date3 = DateTime.Now;
+                    await weekUi.Run(date3);
                     break;
                 case "Exit":
                     Environment.Exit(0);
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
             await Console.Out.WriteLineAsync();
-            await Console.Out.WriteLineAsync("Enter any key to continue");
+            AnsiConsole.Markup("[slowblink green1]Enter[/] any [link yellow1]key[/] to [italic red]continue[/]!");
             Console.ReadKey();
         }
     }

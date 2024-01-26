@@ -8,27 +8,28 @@ public class NowUi
         AnsiConsole.Clear();
         AnsiConsole.Write(new FigletText(" * Weather info * ")
             .LeftJustified()
-            .Color(Color.Green));
+            .Color(Color.Yellow));
 
         string locationId = "1512569";
         string apiUrl = $"https://weather-broker-cdn.api.bbci.co.uk/en/forecast/aggregated/{locationId}";
 
         await AnsiConsole.Status()
-                .Start("Thinking...", async ctx =>
-                {
-                    // Simulate some work
-                    AnsiConsole.MarkupLine("Doing some work...");
-                    Thread.Sleep(1000);
+            .Spinner(Spinner.Known.Star)
+            .Start("Thinking...", async ctx =>
+            {
+                // Simulate some work
+                AnsiConsole.MarkupLine("Doing some work...");
+                Thread.Sleep(1250);
 
-                    // Update the status and spinner
-                    ctx.Status("Thinking some more");
-                    ctx.Spinner(Spinner.Known.Star);
-                    ctx.SpinnerStyle(Style.Parse("green"));
+                // Update the status and spinner
+                ctx.Status("Thinking some more");
+                ctx.Spinner(Spinner.Known.Star);
+                ctx.SpinnerStyle(Style.Parse("green"));
 
-                    // Simulate some work
-                    AnsiConsole.MarkupLine("Doing some more work...");
-                    Thread.Sleep(2000);
-                });
+                // Simulate some work
+                AnsiConsole.MarkupLine("Doing some more work...");
+                Thread.Sleep(2250);
+            });
 
         using var client = new HttpClient();
         var response = await client.GetAsync(apiUrl);
@@ -37,11 +38,12 @@ public class NowUi
         var forecastJson = await response.Content.ReadAsStringAsync();
         var forecastResponse = JsonConvert.DeserializeObject<ForecastResponse>(forecastJson);
 
-
-        Console.WriteLine("Tashkent");
         await Console.Out.WriteLineAsync();
+        AnsiConsole.Markup("[italic bold]Tashkent[/]");
+        Console.WriteLine();
+        Console.WriteLine();
 
-        int timeNow = date.Hour;
+        int timeNow = date.Hour + 1;
 
         foreach (var item in forecastResponse.Forecasts)
         {

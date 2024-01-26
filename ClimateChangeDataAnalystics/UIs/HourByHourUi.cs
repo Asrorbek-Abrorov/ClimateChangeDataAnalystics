@@ -13,7 +13,7 @@ namespace ClimateChangeDataAnalystics.UIs
             AnsiConsole.Clear();
             AnsiConsole.Write(new FigletText(" * Weather info * ")
                 .LeftJustified()
-                .Color(Color.Green));
+                .Color(Color.Blue));
 
             string locationId = "1512569";
             string apiUrl = $"https://weather-broker-cdn.api.bbci.co.uk/en/forecast/aggregated/{locationId}";
@@ -42,7 +42,7 @@ namespace ClimateChangeDataAnalystics.UIs
             var forecastJson = await response.Content.ReadAsStringAsync();
             var forecastResponse = JsonConvert.DeserializeObject<ForecastResponse>(forecastJson);
 
-            Console.WriteLine("Tashkent");
+            AnsiConsole.Markup("[italic bold]Tashkent[/]");
             await Console.Out.WriteLineAsync();
 
             foreach (var item in forecastResponse.Forecasts)
