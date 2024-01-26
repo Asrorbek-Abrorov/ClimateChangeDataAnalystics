@@ -34,11 +34,12 @@ public class MainUi
             switch (ui)
             {
                 case "Show me now forecast":
-                    nowUi.Run();
+                    var date1 = DateTime.Now;
+                     await nowUi.Run(date1);
                     break;
                 case "Show me today forecast":
-                    var date = DateTime.Now;
-                    await hourByHour.Run(date);
+                    var date2 = DateTime.Now;
+                    await hourByHour.Run(date2);
                     break;
                 case "Show me weekly forecast":
                     weekUi.Run();
