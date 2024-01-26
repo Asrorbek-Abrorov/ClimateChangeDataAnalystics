@@ -18,6 +18,23 @@ namespace ClimateChangeDataAnalystics.UIs
             string locationId = "1512569";
             string apiUrl = $"https://weather-broker-cdn.api.bbci.co.uk/en/forecast/aggregated/{locationId}";
 
+            await AnsiConsole.Status()
+                .Start("Thinking...", async ctx =>
+                {
+                    // Simulate some work
+                    AnsiConsole.MarkupLine("Doing some work...");
+                    Thread.Sleep(1000);
+
+                    // Update the status and spinner
+                    ctx.Status("Thinking some more");
+                    ctx.Spinner(Spinner.Known.Star);
+                    ctx.SpinnerStyle(Style.Parse("green"));
+
+                    // Simulate some work
+                    AnsiConsole.MarkupLine("Doing some more work...");
+                    Thread.Sleep(2000);
+                });
+
             using var client = new HttpClient();
             var response = await client.GetAsync(apiUrl);
             response.EnsureSuccessStatusCode();
