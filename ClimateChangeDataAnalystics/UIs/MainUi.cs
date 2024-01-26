@@ -46,12 +46,17 @@ public class MainUi
                     await weekUi.Run(date3);
                     break;
                 case "Exit":
-                    Environment.Exit(0);
+                    keepRunning = false;
                     break;
             }
             await Console.Out.WriteLineAsync();
             AnsiConsole.Markup("[slowblink green1]Enter[/] any [link yellow1]key[/] to [italic red]continue[/]!");
             Console.ReadKey();
         }
+        AnsiConsole.Clear();
+        AnsiConsole.Write(
+            new FigletText("Come back again to check the weather, Goodbye!")
+                .LeftJustified()
+                .Color(Color.Gold3));
     }
 }

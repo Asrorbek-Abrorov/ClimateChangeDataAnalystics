@@ -75,9 +75,7 @@ public class NowUi
                     }
                 }
             }
-            Console.WriteLine();
         }
-        AnsiConsole.Markup("[red]If nothing was written, there was not any info in the API[/]");
         await Console.Out.WriteLineAsync();
     }
 }
