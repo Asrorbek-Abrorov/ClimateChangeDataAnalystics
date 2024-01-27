@@ -14,8 +14,8 @@ public class NowUi
         string locationId = "1512569";
         string apiUrl = $"https://weather-broker-cdn.api.bbci.co.uk/en/forecast/aggregated/{locationId}";
 
-        string lat = "41.311081";
-        string lon = "69.240562";
+        string lat = "41.2646";
+        string lon = "69.2163";
         string apiKey = "b1ba0c3c55c4aa75b181d87851ea8321";
 
         string airPollutionUrl = $"http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={apiKey}";

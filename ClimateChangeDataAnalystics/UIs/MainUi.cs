@@ -12,6 +12,7 @@ public class MainUi
     private readonly HourByHour hourByHour = new HourByHour();
     private readonly NowUi nowUi = new NowUi();
     private readonly WeekUi weekUi = new WeekUi();
+    private readonly SortByWeatherUi weatherUi = new SortByWeatherUi();
     public async Task Run()
     {
         var keepRunning = true;
@@ -29,23 +30,31 @@ public class MainUi
                 .PageSize(5)
                 .MoreChoicesText("[grey rapidblink](Move up and down to reveal more)[/]")
                 .AddChoices(new[] {
-                "Show me now forecast", "Show me today forecast", "Show me weekly forecast", "[red1 invert]Exit[/]"
-                }));
+                "Show me now forecast", "Show me today forecast", "Show me weekly forecast", "Show weathers", "[darkred bold]Exit[/]"
+                }).HighlightStyle("lime bold italic"));
             switch (ui)
             {
                 case "Show me now forecast":
                     var date1 = DateTime.Now;
                      await nowUi.Run(date1);
                     break;
+
                 case "Show me today forecast":
                     var date2 = DateTime.Now;
                     await hourByHour.Run(date2);
                     break;
+
                 case "Show me weekly forecast":
                     var date3 = DateTime.Now;
                     await weekUi.Run(date3);
                     break;
-                case "[red1 invert]Exit[/]":
+
+                case "Show weathers":
+                    var date4 = DateTime.Now;
+                    await weatherUi.Run(date4);
+                    break;
+
+                case "[darkred bold]Exit[/]":
                     keepRunning = false;
                     break;
             }
