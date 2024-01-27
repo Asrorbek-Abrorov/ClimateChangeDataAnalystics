@@ -22,20 +22,21 @@ public class WeekUi
 
         await AnsiConsole.Status()
             .Spinner(Spinner.Known.Star)
-            .Start("Thinking...", async ctx =>
+            .Start("[mediumpurple4]Checking...[/]", async ctx =>
             {
                 // Simulate some work
-                AnsiConsole.MarkupLine("Doing some work...");
+                AnsiConsole.MarkupLine("[mediumspringgreen]Connecting to the server...[/]");
                 Thread.Sleep(1250);
 
                 // Update the status and spinner
-                ctx.Status("Thinking some more");
+                ctx.Status("[green1 bold italic]Getting information[/]");
                 ctx.Spinner(Spinner.Known.Star);
                 ctx.SpinnerStyle(Style.Parse("green"));
 
                 // Simulate some work
-                AnsiConsole.MarkupLine("Doing some more work...");
+                AnsiConsole.MarkupLine("[springgreen4]Waiting for the response...[/]");
                 Thread.Sleep(2250);
+
             });
 
         using var client = new HttpClient();
@@ -47,6 +48,7 @@ public class WeekUi
 
         await Console.Out.WriteLineAsync();
         AnsiConsole.Markup("[italic bold]Tashkent[/]");
+        await Console.Out.WriteLineAsync();
         await Console.Out.WriteLineAsync();
 
         int timeNow = date.Hour + 1;

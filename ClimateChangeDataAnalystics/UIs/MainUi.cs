@@ -45,7 +45,7 @@ public class MainUi
                     var date3 = DateTime.Now;
                     await weekUi.Run(date3);
                     break;
-                case "Exit":
+                case "[red1 invert]Exit[/]":
                     keepRunning = false;
                     break;
             }
@@ -53,10 +53,14 @@ public class MainUi
             AnsiConsole.Markup("[slowblink green1]Enter[/] any [link yellow1]key[/] to [italic red]continue[/]!");
             Console.ReadKey();
         }
+
         AnsiConsole.Clear();
         AnsiConsole.Write(
             new FigletText("Come back again to check the weather, Goodbye!")
                 .LeftJustified()
-                .Color(Color.Gold3));
+                .Color(Color.BlueViolet));
+        AnsiConsole.WriteLine("-----");
+        AnsiConsole.MarkupLine("| c | [bold]Asrorbek Abrorov[/]. [italic]All rights are reserved.[/]");
+        AnsiConsole.WriteLine("-----");
     }
 }
