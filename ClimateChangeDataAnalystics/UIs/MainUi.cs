@@ -1,9 +1,4 @@
 ﻿using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClimateChangeDataAnalystics.UIs;
 
@@ -36,7 +31,7 @@ public class MainUi
             {
                 case "Show me now forecast":
                     var date1 = DateTime.Now;
-                     await nowUi.Run(date1);
+                    await nowUi.Run(date1);
                     break;
 
                 case "Show me today forecast":

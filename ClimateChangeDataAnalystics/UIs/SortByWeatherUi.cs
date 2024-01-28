@@ -1,10 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClimateChangeDataAnalystics.UIs;
 
@@ -64,13 +59,13 @@ public class SortByWeatherUi
                 }
             }
             weatherTypes.Add("Back");
-;           var ui = AnsiConsole.Prompt(new SelectionPrompt<string>()
-                .Title("[orange1 rapidblink italic bold link]* Weathers *[/]!")
-                .PageSize(12)
-                .MoreChoicesText("[grey rapidblink](Move up and down to reveal more)[/]")
-                .AddChoices(weatherTypes)
-                
-                .HighlightStyle("red bold italic"));
+            var ui = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                 .Title("[orange1 rapidblink italic bold link]* Weathers *[/]!")
+                 .PageSize(12)
+                 .MoreChoicesText("[grey rapidblink](Move up and down to reveal more)[/]")
+                 .AddChoices(weatherTypes)
+
+                 .HighlightStyle("red bold italic"));
 
             switch (ui)
             {

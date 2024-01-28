@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Spectre.Console;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace ClimateChangeDataAnalystics.UIs
 {
@@ -65,7 +62,7 @@ namespace ClimateChangeDataAnalystics.UIs
                         AnsiConsole.WriteLine($"Pressure: {forecast.Pressure}");
                         Console.WriteLine($"Wind speed: {forecast.WindSpeedKph} KPH");
                         Console.WriteLine();
-                        
+
                     }
                 }
                 Console.WriteLine();

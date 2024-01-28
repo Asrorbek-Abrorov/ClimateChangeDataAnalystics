@@ -1,11 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using ClimateChangeDataAnalystics.UIs;
-using Colorful;
-using Newtonsoft.Json;
-using Spectre.Console;
-using Console = Colorful.Console;
+﻿using ClimateChangeDataAnalystics.UIs;
 
 class Program
 {

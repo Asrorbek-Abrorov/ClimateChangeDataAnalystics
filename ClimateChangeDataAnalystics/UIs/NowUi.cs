@@ -65,7 +65,7 @@ public class NowUi
             foreach (var forecast in item.Detailed.Reports)
             {
                 DateTime forecastDate = DateTime.Parse(forecast.LocalDate);
-                if(timeNow < 10)
+                if (timeNow < 10)
                 {
                     if (forecastDate.Date == date.Date && forecast.Timeslot == $"0{timeNow}:00")
                     {
@@ -82,7 +82,7 @@ public class NowUi
                 }
                 else
                 {
-                    
+
 
                     if (forecastDate.Date == date.Date && forecast.Timeslot == $"{timeNow}:00")
                     {
